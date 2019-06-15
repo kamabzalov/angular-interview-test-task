@@ -4,8 +4,12 @@ aside {
     overflow-y: scroll;
 }
 
-aside header, aside > div {
+aside header {
     padding: 16px 24px;
+}
+
+aside .mat-list-base .mat-list-item {
+    padding: 0 24px;
 }
 
 aside header {
@@ -39,4 +43,8 @@ aside div .mat-list-base .mat-list-item h4.mat-line {
 
 aside div .mat-list-base .mat-list-item p.mat-line {
     color: rgba(0, 0, 0, .54);
+}
+
+aside div .hoverable:hover .mat-line {
+    color: #fff !important;
 }

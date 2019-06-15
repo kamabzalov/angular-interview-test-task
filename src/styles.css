@@ -33,3 +33,9 @@ body {
 .shadow-element {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
+
+.hoverable:hover {
+    background: #26a9e0;
+    color: ##fff;
+    cursor: pointer;
+}

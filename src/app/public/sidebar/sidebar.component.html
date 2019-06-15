@@ -12,76 +12,15 @@
     </header>
     <div>
         <mat-list>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 class="mb-1" mat-line>Name</h4>
-                <p class="mb-1" mat-line> Username </p>
-                <p mat-line> Email </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-                <mat-icon mat-list-icon>folder</mat-icon>
-                <h4 mat-line>Name</h4>
-                <p mat-line> Username </p>
-                <p mat-line> EMail </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
+            <ng-container *ngFor="let user of users">
+                <mat-list-item class="hoverable" (click)="showUsersAlbums()">
+                    <mat-icon mat-list-icon>account_circle</mat-icon>
+                    <h4 class="mb-1" mat-line>{{user.name}}</h4>
+                    <p class="mb-1" mat-line>{{user.username}}</p>
+                    <p mat-line>{{user.email}}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-container>
         </mat-list>
     </div>
 </aside>
