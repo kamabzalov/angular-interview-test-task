@@ -3,9 +3,11 @@ import { ControlsModule } from '../controls.module';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
-    declarations: [DashboardComponent, SidebarComponent],
+    declarations: [DashboardComponent, SidebarComponent, AlbumsComponent, PhotosComponent],
     imports: [
         CommonModule,
         ControlsModule
