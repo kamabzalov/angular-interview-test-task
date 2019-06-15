@@ -1,4 +1,6 @@
 section#albums {
     padding: 16px 24px;
     background: #fff;
+    height: 250px;
+    overflow-y: scroll;
 }

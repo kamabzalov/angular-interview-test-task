@@ -1,4 +1,5 @@
 section#photos {
     padding: 16px 24px;
     background: #fff;
+    height: calc(100% - 250px - 1.5rem);
 }
