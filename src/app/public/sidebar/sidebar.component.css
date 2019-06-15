@@ -1,0 +1,48 @@
+aside {
+    background: #fff;
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+aside header, aside > div {
+    padding: 16px 24px;
+}
+
+aside header {
+    background: #f9f9f9;
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+aside header span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+aside .mat-icon {
+    color: #757575;
+}
+
+aside div .mat-list-base .mat-list-item .mat-list-item-content {
+    padding: 0;
+}
+
+aside div .mat-list-base {
+    padding-top: 0;
+}
+
+aside .mat-list-base .mat-list-item .mat-line {
+    font-size: 13px;
+}
+
+aside div .mat-list-base .mat-list-item h4.mat-line {
+    color: rgba(0,0,0,.87);
+}
+
+aside div .mat-list-base .mat-list-item p.mat-line {
+    color: rgba(0, 0, 0, .54);
+}
