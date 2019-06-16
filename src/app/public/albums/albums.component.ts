@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-albums',
-  templateUrl: './albums.component.html',
-  styleUrls: ['./albums.component.css']
+    selector: 'app-albums',
+    templateUrl: './albums.component.html',
+    styleUrls: ['./albums.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None
 })
 export class AlbumsComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    albums = [];
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
 
+    ngOnInit() {
+    }
 }

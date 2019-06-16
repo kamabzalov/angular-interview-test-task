@@ -7,7 +7,12 @@ import { AlbumsComponent } from './albums/albums.component';
 import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
-    declarations: [DashboardComponent, SidebarComponent, AlbumsComponent, PhotosComponent],
+    declarations: [
+        DashboardComponent,
+        SidebarComponent,
+        AlbumsComponent,
+        PhotosComponent
+    ],
     imports: [
         CommonModule,
         ControlsModule

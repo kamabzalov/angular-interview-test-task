@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { User } from '../services/users/user';
 import { UsersService } from '../services/users/users.service';
+import { Album } from '../services/albums/album';
 
 @Component({
     selector: 'app-sidebar',
@@ -11,6 +12,8 @@ import { UsersService } from '../services/users/users.service';
 export class SidebarComponent implements OnInit {
 
     users: User[] = [];
+    userAlbums: Album[] = [];
+    @Output() getAlbums = new EventEmitter<Album[]>();
 
     constructor(private _usersService: UsersService) {
     }
@@ -23,8 +26,13 @@ export class SidebarComponent implements OnInit {
         });
     }
 
-    showUsersAlbums() {
-        console.log(1);
+    showUsersAlbums(id: number) {
+        this._usersService.getAlbumsByUserId(id).subscribe(result => {
+            if (result) {
+                this.userAlbums = result;
+                this.getAlbums.emit(this.userAlbums);
+            }
+        });
     }
 
 }

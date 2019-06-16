@@ -13,7 +13,7 @@
     <div>
         <mat-list>
             <ng-container *ngFor="let user of users">
-                <mat-list-item class="hoverable" (click)="showUsersAlbums()">
+                <mat-list-item class="hoverable" (click)="showUsersAlbums(user.id)">
                     <mat-icon mat-list-icon>account_circle</mat-icon>
                     <h4 class="mb-1" mat-line>{{user.name}}</h4>
                     <p class="mb-1" mat-line>{{user.username}}</p>

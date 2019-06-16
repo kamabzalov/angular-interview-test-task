@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <app-sidebar></app-sidebar>
+            <app-sidebar (getAlbums)="getUserAlbums($event)"></app-sidebar>
         </div>
         <div class="col-8">
-            <app-albums></app-albums>
+            <app-albums [albums]="albums"></app-albums>
             <app-photos></app-photos>
         </div>
     </div>

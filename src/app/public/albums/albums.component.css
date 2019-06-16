@@ -4,3 +4,11 @@ section#albums {
     height: 250px;
     overflow-y: scroll;
 }
+
+section#albums .mat-checkbox-layout {
+    white-space: normal;
+}
+
+section#albums span.mat-checkbox-label {
+    font-size: 13px;
+}
