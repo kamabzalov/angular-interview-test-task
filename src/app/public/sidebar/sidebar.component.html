@@ -1,12 +1,21 @@
 <aside class="shadow-element">
     <header>
-        <div class="row">
+        <div class="row" *ngIf="!showSearch">
             <div class="col-4">
                 <span class="block-header">Users</span>
             </div>
             <div class="col-8 text-right">
                 <mat-icon class="mr-4">filter_list</mat-icon>
-                <mat-icon>search</mat-icon>
+                <mat-icon (click)="showSearchField()" class="clickable">search</mat-icon>
+            </div>
+        </div>
+        <div class="row" *ngIf="showSearch">
+            <div class="col-12">
+                <div class="searchWrapper d-flex align-items-center">
+                    <mat-icon class="clickable" (click)="closeSearchField()">arrow_back</mat-icon>
+                    <input #userSearch type="text" [(ngModel)]="user" (input)="searchByQuery()">
+                    <mat-icon class="clickable" (click)="clearSearch()">close</mat-icon>
+                </div>
             </div>
         </div>
     </header>

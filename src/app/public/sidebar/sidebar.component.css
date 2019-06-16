@@ -14,7 +14,6 @@ aside .mat-list-base .mat-list-item {
 
 aside header {
     background: #f9f9f9;
-    padding: 16px 24px;
     position: sticky;
     top: 0;
     left: 0;
@@ -47,4 +46,19 @@ aside div .mat-list-base .mat-list-item p.mat-line {
 
 aside div .hoverable:hover .mat-line {
     color: #fff !important;
+}
+
+aside .searchWrapper {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+    height: 48px;
+    padding: 0 24px;
+}
+
+aside .searchWrapper input {
+    background: none;
+    border: none;
+    outline: none;
+    width: calc(100% - 48px);
+    padding-left:24px;
 }

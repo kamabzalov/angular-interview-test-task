@@ -11,6 +11,10 @@ section#albums .mat-checkbox-layout {
 
 section#albums span.mat-checkbox-label {
     font-size: 13px;
+    white-space: nowrap;
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 section#albums button {
