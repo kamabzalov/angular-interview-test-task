@@ -4,8 +4,8 @@
             <app-sidebar (getAlbums)="getUserAlbums($event)"></app-sidebar>
         </div>
         <div class="col-8">
-            <app-albums [albums]="albums"></app-albums>
-            <app-photos></app-photos>
+            <app-albums [albums]="albums" (getPhotos)="getPhotosList($event)"></app-albums>
+            <app-photos [photos]="photos"></app-photos>
         </div>
     </div>
 </div>

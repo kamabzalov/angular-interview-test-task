@@ -12,3 +12,13 @@ section#albums .mat-checkbox-layout {
 section#albums span.mat-checkbox-label {
     font-size: 13px;
 }
+
+section#albums button {
+    position: absolute;
+    top: 220px;
+    right: 50px;
+}
+
+section#albums button.mat-fab.mat-accent {
+    background-color: #26a9e0;
+}

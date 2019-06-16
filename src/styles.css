@@ -43,3 +43,8 @@ body {
 .clickable {
     cursor: pointer;
 }
+
+.image-responsive {
+    max-width: 100%;
+    height: auto;
+}

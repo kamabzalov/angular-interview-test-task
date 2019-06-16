@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { AlbumsService } from '../services/albums/albums.service';
+import { Photo } from '../services/photos/photo';
 
 @Component({
     selector: 'app-albums',
@@ -11,10 +13,20 @@ export class AlbumsComponent implements OnInit {
 
     @Input()
     albums = [];
+    @Output()
+    getPhotos = new EventEmitter<Photo[]>();
 
-    constructor() {
+    constructor(private _albumsService: AlbumsService) {
     }
 
     ngOnInit() {
+    }
+
+    getAlbumPhotos(albumId: number) {
+        this._albumsService.getAlbumPhotos(albumId).subscribe(value => {
+            if (value) {
+                this.getPhotos.emit(value);
+            }
+        });
     }
 }

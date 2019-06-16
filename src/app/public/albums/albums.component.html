@@ -1,4 +1,4 @@
-<section id="albums" class="shadow-element mb-4">
+<section id="albums" class="shadow-element mb-5">
     <div class="row">
         <div class="col-6">
             <span class="block-header">Albums</span>
@@ -17,4 +17,7 @@
             <mat-checkbox (change)="getAlbumPhotos(album.id)">{{album.title}}</mat-checkbox>
         </div>
     </div>
+    <button mat-fab>
+        <mat-icon>add</mat-icon>
+    </button>
 </section>
