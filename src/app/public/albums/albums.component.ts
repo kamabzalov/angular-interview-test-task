@@ -1,32 +1,32 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { AlbumsService } from '../services/albums/albums.service';
-import { Photo } from '../services/photos/photo';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {AlbumsService} from '../services/albums/albums.service';
+import {Photo} from '../services/photos/photo';
 
 @Component({
-    selector: 'app-albums',
-    templateUrl: './albums.component.html',
-    styleUrls: ['./albums.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+  selector: 'albums',
+  templateUrl: './albums.component.html',
+  styleUrls: ['./albums.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class AlbumsComponent implements OnInit {
 
-    @Input()
-    albums = [];
-    @Output()
-    getPhotos = new EventEmitter<Photo[]>();
+  @Input()
+  albums = [];
+  @Output()
+  getPhotos = new EventEmitter<Photo[]>();
 
-    constructor(private _albumsService: AlbumsService) {
-    }
+  constructor(private _albumsService: AlbumsService) {
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
-    getAlbumPhotos(albumId: number) {
-        this._albumsService.getAlbumPhotos(albumId).subscribe(value => {
-            if (value) {
-                this.getPhotos.emit(value);
-            }
-        });
-    }
+  getAlbumPhotos(albumId: number) {
+    this._albumsService.getAlbumPhotos(albumId).subscribe(value => {
+      if (value) {
+        this.getPhotos.emit(value);
+      }
+    });
+  }
 }

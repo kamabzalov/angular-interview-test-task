@@ -3,9 +3,9 @@ import { Album } from '../services/albums/album';
 import { Photo } from '../services/photos/photo';
 
 @Component({
-    selector: 'app-dashboard',
+    selector: 'dashboard',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.css']
+    styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 

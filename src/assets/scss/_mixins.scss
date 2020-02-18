@@ -1,0 +1,9 @@
+@import "vars";
+
+@mixin text-align($align) {
+  text-align: unquote($align);
+}
+
+@mixin shadow($shadow...) {
+  box-shadow: $shadow;
+}

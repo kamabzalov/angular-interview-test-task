@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row">
-        <div class="col-4">
-            <app-sidebar (getAlbums)="getUserAlbums($event)"></app-sidebar>
-        </div>
-        <div class="col-8">
-            <app-albums [albums]="albums" (getPhotos)="getPhotosList($event)"></app-albums>
-            <app-photos [photos]="photos"></app-photos>
-        </div>
+  <div class="row">
+    <div class="col-4">
+      <sidebar (getAlbums)="getUserAlbums($event)"></sidebar>
     </div>
+    <div class="col-8">
+      <albums [albums]="albums" (getPhotos)="getPhotosList($event)"></albums>
+      <photos [photos]="photos"></photos>
+    </div>
+  </div>
 </div>

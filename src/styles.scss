@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap-4-grid/css/grid.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/scss/_vars";
+@import "assets/scss/_mixins";
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: $app-font;
+  background: $body-background;
+}
+
+.text-left {
+  @include text-align($left);
+}
+
+.text-right {
+  @include text-align($right);
+}
+
+.text-center {
+  @include text-align($center);
+}
+
+.block-header {
+  font: {
+    size: 20px;
+    weight: 500;
+  }
+  color: $header-text-color;
+}
+
+.shadow-element {
+  @include shadow(0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12));
+}
+
+.hoverable {
+  &:hover {
+    background: $app-main-blue;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.image-responsive {
+  max-width: 100%;
+  height: auto;
+}
