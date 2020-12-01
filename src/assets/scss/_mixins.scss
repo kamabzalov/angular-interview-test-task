@@ -7,3 +7,7 @@
 @mixin shadow($shadow...) {
   box-shadow: $shadow;
 }
+
+@mixin borderRadius($size) {
+  border-radius: $size;
+}

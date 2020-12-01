@@ -1,6 +1,9 @@
+@import "src/assets/scss/vars";
+@import "src/assets/scss/mixins";
+
 section#photos {
-  padding: 16px 24px;
-  background: #fff;
+  padding: $baseSize * 4 $baseSize * 6;
+  background: $white;
   height: calc(100% - 40vh - 3rem);
   overflow-y: scroll;
 }

@@ -1,64 +1,67 @@
+@import "src/assets/scss/vars";
+@import "/src/assets/scss/mixins";
+
 aside {
-    background: #fff;
-    height: 95vh;
-    overflow-y: scroll;
+  background: $white;
+  height: 95vh;
+  overflow-y: scroll;
 }
 
 aside header {
-    padding: 16px 24px;
+  padding: $baseSize * 4 $baseSize * 6;
 }
 
 aside .mat-list-base .mat-list-item {
-    padding: 0 24px;
+  padding: 0 $baseSize * 6;
 }
 
 aside header {
-    background: #f9f9f9;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 2;
+  background: #f9f9f9;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 aside .mat-icon {
-    color: #757575;
+  color: #757575;
 }
 
 aside div .mat-list-base .mat-list-item .mat-list-item-content {
-    padding: 0;
+  padding: 0;
 }
 
 aside div .mat-list-base {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 aside .mat-list-base .mat-list-item .mat-line {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 aside div .mat-list-base .mat-list-item h4.mat-line {
-    color: rgba(0,0,0,.87);
+  color: rgba(0, 0, 0, .87);
 }
 
 aside div .mat-list-base .mat-list-item p.mat-line {
-    color: rgba(0, 0, 0, .54);
+  color: rgba(0, 0, 0, .54);
 }
 
 aside div .hoverable:hover .mat-line {
-    color: #fff !important;
+  color: $white !important;
 }
 
 aside .searchWrapper {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-    border-radius: 3px;
-    height: 48px;
-    padding: 0 24px;
+  @include shadow(0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12));
+  @include borderRadius(3px);
+  height: $baseSize * 12;
+  padding: 0 $baseSize * 6;
 }
 
 aside .searchWrapper input {
-    background: none;
-    border: none;
-    outline: none;
-    width: calc(100% - 48px);
-    padding-left:24px;
+  background: none;
+  border: none;
+  outline: none;
+  width: calc(100% - #{$baseSize} * 12);
+  padding-left: $baseSize * 6;
 }
