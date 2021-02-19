@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {AlbumsService} from '../services/albums/albums.service';
-import {Photo} from '../services/photos/photo';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { AlbumsService } from '../services/albums/albums.service';
+import { Photo } from '../services/photos/photo';
 
 @Component({
   selector: 'albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class AlbumsComponent implements OnInit {

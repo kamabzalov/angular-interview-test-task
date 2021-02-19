@@ -1,23 +1,20 @@
 <section id="albums" class="shadow-element mb-5">
-    <div class="row">
-        <div class="col-6">
-            <span class="block-header">Albums</span>
-        </div>
-        <div class="col-6 text-right">
-            <mat-checkbox>Select all</mat-checkbox>
-        </div>
+  <div class="row">
+    <div class="col-6">
+      <span class="block-header">Albums</span>
     </div>
-    <div *ngIf="!albums.length" class="row h-100 align-content-center">
-        <div class="col-12 text-center">
-            <p>Select a user first</p>
-        </div>
+    <div class="col-6 text-right">
+      <mat-checkbox>Select all</mat-checkbox>
     </div>
-    <div *ngIf="albums.length" class="row mt-4">
-        <div class="col-3" *ngFor="let album of albums">
-            <mat-checkbox (change)="getAlbumPhotos(album.id)">{{album.title}}</mat-checkbox>
-        </div>
+  </div>
+  <div *ngIf="!albums.length" class="row h-100 align-content-center">
+    <div class="col-12 text-center">
+      <p>Select a user first</p>
     </div>
-    <button mat-fab>
-        <mat-icon>add</mat-icon>
-    </button>
+  </div>
+  <div *ngIf="albums.length" class="row mt-4">
+    <div class="col-3" *ngFor="let album of albums">
+      <mat-checkbox (change)="getAlbumPhotos(album.id)">{{album.title}}</mat-checkbox>
+    </div>
+  </div>
 </section>

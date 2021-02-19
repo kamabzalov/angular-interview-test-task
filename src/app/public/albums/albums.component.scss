@@ -1,31 +1,22 @@
 @import "src/assets/scss/vars";
 @import "src/assets/scss/mixins";
 
-section#albums {
+#albums {
   padding: $baseSize * 4 $baseSize * 6;
   background: $white;
   height: 40vh;
-  overflow-y: scroll;
-}
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
-section#albums .mat-checkbox-layout {
-  white-space: normal;
-}
+  .mat-checkbox {
+    font-size: 13px;
 
-section#albums span.mat-checkbox-label {
-  font-size: 13px;
-  white-space: nowrap;
-  max-width: 130px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    .mat-checkbox-label {
+      text-overflow: ellipsis;
+      max-width: 130px;
+      overflow: hidden;
+    }
+  }
 
-section#albums button {
-  position: absolute;
-  top: 37vh;
-  right: 50px;
-}
-
-section#albums button.mat-fab.mat-accent {
-  background-color: $app-main-blue;
 }
