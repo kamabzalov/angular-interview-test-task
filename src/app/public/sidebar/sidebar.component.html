@@ -20,14 +20,14 @@
   </header>
   <div>
     <mat-list>
-      <ng-container *ngFor="let user of users">
+      <ng-container *ngFor="let user of users; trackBy: trackByFn; last as isLast">
         <mat-list-item class="hoverable" (click)="showUsersAlbums(user.id)">
           <mat-icon mat-list-icon>account_circle</mat-icon>
           <h4 class="mb-1" mat-line>{{user.name}}</h4>
           <p class="mb-1" mat-line>{{user.username}}</p>
           <p mat-line>{{user.email}}</p>
         </mat-list-item>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="!isLast"></mat-divider>
       </ng-container>
     </mat-list>
   </div>

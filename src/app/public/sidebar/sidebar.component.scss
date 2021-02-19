@@ -21,6 +21,10 @@
     }
 
     div {
+      .mat-list {
+        padding-top: 0;
+      }
+
       .hoverable {
         &:hover {
           .mat-line {

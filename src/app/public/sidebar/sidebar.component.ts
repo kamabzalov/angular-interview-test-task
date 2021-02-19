@@ -63,4 +63,8 @@ export class SidebarComponent implements OnInit {
     this.user = '';
     this.getAllUsers();
   }
+
+  trackByFn(index: number, user: User) {
+    return user.id;
+  }
 }
