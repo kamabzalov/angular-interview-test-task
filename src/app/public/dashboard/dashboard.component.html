@@ -4,8 +4,10 @@
       <sidebar (getAlbums)="getUserAlbums($event)"></sidebar>
     </div>
     <div class="col-8">
-      <albums [albums]="albums" (getPhotos)="getPhotosList($event)"></albums>
-      <photos [photos]="photos"></photos>
+      <div class="userInfo">
+        <albums [albums]="albums" class="mb-5 albums shadow-element" (getPhotos)="getPhotosList($event)"></albums>
+        <photos [photos]="photos" class="photos shadow-element"></photos>
+      </div>
     </div>
   </div>
 </div>

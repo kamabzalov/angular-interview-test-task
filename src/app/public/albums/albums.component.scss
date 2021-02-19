@@ -3,9 +3,6 @@
 
 #albums {
   padding: $baseSize * 4 $baseSize * 6;
-  background: $white;
-  height: 40vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
 
@@ -20,3 +17,4 @@
   }
 
 }
+

@@ -1,0 +1,27 @@
+@import "src/assets/scss/vars";
+
+:host {
+  display: block;
+  height: 100%;
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+
+    .albums, .photos {
+      display: block;
+      background: $white;
+    }
+
+    .albums {
+      height: 50vh;
+    }
+
+    .photos {
+      height: calc(50vh - 3rem);
+      overflow-y: scroll;
+    }
+  }
+}
+

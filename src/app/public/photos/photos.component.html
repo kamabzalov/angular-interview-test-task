@@ -1,18 +1,18 @@
-<section id="photos" class="shadow-element">
-    <div class="row">
-        <div class="col-12">
-            <span class="block-header">{{photos.length}} Photos</span>
-        </div>
+<section id="photos">
+  <div class="row">
+    <div class="col-12">
+      <span class="block-header">{{photos.length}} Photos</span>
     </div>
-    <div *ngIf="!photos.length" class="row h-100 align-content-center">
-        <div class="col-12 text-center">
-            <p>Select an album first</p>
-        </div>
+  </div>
+  <div *ngIf="!photos.length" class="row h-100 align-content-center">
+    <div class="col-12 text-center">
+      <p>Select an album first</p>
     </div>
-    <div *ngIf="photos.length" class="row mt-4">
-        <div class="col-2 mb-2" *ngFor="let photo of photos">
-            <img class="image-responsive" [src]="photo.thumbnailUrl" [alt]="photo.title">
-            <p>{{photo.title}}</p>
-        </div>
+  </div>
+  <div *ngIf="photos.length" class="row mt-4">
+    <div class="col-2 mb-2" *ngFor="let photo of photos">
+      <img class="image-responsive" [src]="photo.thumbnailUrl" [alt]="photo.title">
+      <p>{{photo.title}}</p>
     </div>
+  </div>
 </section>
