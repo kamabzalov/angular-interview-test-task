@@ -1,24 +1,21 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
-import {User} from '../services/users/user';
-import {UsersService} from '../services/users/users.service';
-import {Album} from '../services/albums/album';
-import {debounceTime} from 'rxjs/operators';
-import {fromEvent} from 'rxjs';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { User } from '../services/users/user';
+import { UsersService } from '../services/users/users.service';
+import { Album } from '../services/albums/album';
 
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SidebarComponent implements OnInit {
 
   users: User[] = [];
+  usersCopy: User[] = [];
   userAlbums: Album[] = [];
-  @Output() getAlbums = new EventEmitter<Album[]>();
   showSearch = false;
   user = '';
-  @ViewChild('userSearch', {static: false}) userSearch;
+  @Output() getAlbums = new EventEmitter<Album[]>();
 
   constructor(private _usersService: UsersService) {
   }
@@ -31,6 +28,7 @@ export class SidebarComponent implements OnInit {
     this._usersService.getUsers().subscribe(result => {
       if (result) {
         this.users = result;
+        this.usersCopy = result;
       }
     });
   }
@@ -53,16 +51,12 @@ export class SidebarComponent implements OnInit {
   }
 
   searchByQuery() {
-    const searchBox$ = fromEvent(this.userSearch.nativeElement, 'keyup');
-    searchBox$.pipe(
-      debounceTime(500)
-    ).subscribe(() => {
-      this._usersService.searchUserByQuery(this.user).subscribe(value => {
-        if (value) {
-          this.users = value;
-        }
-      });
-    });
+    const filteredUsers = this.users.filter(user => user.name.includes(this.user) || user.username.includes(this.user));
+    if (this.user) {
+      this.users = filteredUsers;
+    } else {
+      this.users = this.usersCopy;
+    }
   }
 
   clearSearch() {

@@ -1,67 +1,48 @@
 @import "src/assets/scss/vars";
 @import "/src/assets/scss/mixins";
 
-aside {
-  background: $white;
-  height: 95vh;
-  overflow-y: scroll;
-}
+:host {
+  aside {
+    background: $white;
+    height: 95vh;
+    overflow-y: scroll;
 
-aside header {
-  padding: $baseSize * 4 $baseSize * 6;
-}
+    header {
+      padding: $baseSize * 4 $baseSize * 6;
+      background: #f9f9f9;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
 
-aside .mat-list-base .mat-list-item {
-  padding: 0 $baseSize * 6;
-}
+    .mat-icon {
+      color: #757575;
+    }
 
-aside header {
-  background: #f9f9f9;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
+    div {
+      .hoverable {
+        &:hover {
+          .mat-line {
+            color: $white !important;
+          }
+        }
+      }
+    }
 
-aside .mat-icon {
-  color: #757575;
-}
+    .searchWrapper {
+      @include shadow(0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12));
+      @include borderRadius(3px);
+      height: $baseSize * 12;
+      padding: 0 $baseSize * 6;
 
-aside div .mat-list-base .mat-list-item .mat-list-item-content {
-  padding: 0;
-}
-
-aside div .mat-list-base {
-  padding-top: 0;
-}
-
-aside .mat-list-base .mat-list-item .mat-line {
-  font-size: 13px;
-}
-
-aside div .mat-list-base .mat-list-item h4.mat-line {
-  color: rgba(0, 0, 0, .87);
-}
-
-aside div .mat-list-base .mat-list-item p.mat-line {
-  color: rgba(0, 0, 0, .54);
-}
-
-aside div .hoverable:hover .mat-line {
-  color: $white !important;
-}
-
-aside .searchWrapper {
-  @include shadow(0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12));
-  @include borderRadius(3px);
-  height: $baseSize * 12;
-  padding: 0 $baseSize * 6;
-}
-
-aside .searchWrapper input {
-  background: none;
-  border: none;
-  outline: none;
-  width: calc(100% - #{$baseSize} * 12);
-  padding-left: $baseSize * 6;
+      input {
+        background: none;
+        border: none;
+        outline: none;
+        width: calc(100% - #{$baseSize} * 12);
+        padding-left: $baseSize * 6;
+      }
+    }
+  }
 }
