@@ -4,7 +4,7 @@
       <span class="block-header">Albums</span>
     </div>
     <div class="col-6 text-right">
-      <mat-checkbox>Select all</mat-checkbox>
+      <mat-checkbox (change)="selectAll()">Select all</mat-checkbox>
     </div>
   </div>
   <div *ngIf="!albums.length" class="row h-100 align-content-center">
@@ -13,8 +13,8 @@
     </div>
   </div>
   <div *ngIf="albums.length" class="row mt-4">
-    <div class="col-3" *ngFor="let album of albums">
-      <mat-checkbox (change)="getAlbumPhotos(album.id)">{{album.title}}</mat-checkbox>
+    <div class="col-3" *ngFor="let album of albums; trackBy: trackByFn">
+      <mat-checkbox [(ngModel)]="album.selected" (change)="getAlbumPhotos(album)">{{album.title}}</mat-checkbox>
     </div>
   </div>
 </section>

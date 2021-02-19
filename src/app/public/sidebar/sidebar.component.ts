@@ -33,13 +33,17 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  showUsersAlbums(id: number) {
-    this._usersService.getAlbumsByUserId(id).subscribe(result => {
-      if (result) {
-        this.userAlbums = result;
-        this.getAlbums.emit(this.userAlbums);
-      }
-    });
+  showUsersAlbums(id?: number) {
+    if (id) {
+      this._usersService.getAlbumsByUserId(id).subscribe(result => {
+        if (result) {
+          this.userAlbums = result;
+          this.getAlbums.emit(this.userAlbums);
+        }
+      });
+    } else {
+      this.getAlbums.emit([]);
+    }
   }
 
   showSearchField() {
@@ -48,6 +52,9 @@ export class SidebarComponent implements OnInit {
 
   closeSearchField() {
     this.showSearch = false;
+    this.user = '';
+    this.getAllUsers();
+    this.showUsersAlbums();
   }
 
   searchByQuery() {
@@ -62,6 +69,7 @@ export class SidebarComponent implements OnInit {
   clearSearch() {
     this.user = '';
     this.getAllUsers();
+    this.showUsersAlbums();
   }
 
   trackByFn(index: number, user: User) {

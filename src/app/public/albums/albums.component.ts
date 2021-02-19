@@ -1,14 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {AlbumsService} from '../services/albums/albums.service';
-import {Photo} from '../services/photos/photo';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { AlbumsService } from '../services/albums/albums.service';
+import { Photo } from '../services/photos/photo';
+import { Album } from '../services/albums/album';
 
 @Component({
   selector: 'albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class AlbumsComponent implements OnInit {
+export class AlbumsComponent implements OnChanges {
 
   @Input()
   albums = [];
@@ -18,14 +19,29 @@ export class AlbumsComponent implements OnInit {
   constructor(private _albumsService: AlbumsService) {
   }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes.albums.currentValue.length) {
+      this.getPhotos.emit([]);
+    }
   }
 
-  getAlbumPhotos(albumId: number) {
-    this._albumsService.getAlbumPhotos(albumId).subscribe(value => {
-      if (value) {
-        this.getPhotos.emit(value);
-      }
-    });
+  getAlbumPhotos(album: Album) {
+    if (album.selected) {
+      this._albumsService.getAlbumPhotos(album.id).subscribe(value => {
+        if (value) {
+          this.getPhotos.emit(value);
+        }
+      });
+    } else {
+      this.getPhotos.emit([]);
+    }
+  }
+
+  trackByFn(index: number, element: Album) {
+    return element.id;
+  }
+
+  selectAll() {
+    this.albums.map(album => album.selected = !album.selected);
   }
 }
