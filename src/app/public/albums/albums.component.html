@@ -3,8 +3,8 @@
     <div class="col-6">
       <span class="block-header">Albums</span>
     </div>
-    <div class="col-6 text-right">
-      <mat-checkbox (change)="selectAll()">Select all</mat-checkbox>
+    <div class="col-6 text-right" *ngIf="albums.length">
+      <mat-checkbox (change)="selectAll($event)">Select all</mat-checkbox>
     </div>
   </div>
   <div *ngIf="!albums.length" class="row h-100 align-content-center">

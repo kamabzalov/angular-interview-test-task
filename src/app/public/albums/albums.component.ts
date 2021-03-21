@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewE
 import { AlbumsService } from '../services/albums/albums.service';
 import { Photo } from '../services/photos/photo';
 import { Album } from '../services/albums/album';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'albums',
@@ -41,7 +42,7 @@ export class AlbumsComponent implements OnChanges {
     return element.id;
   }
 
-  selectAll() {
-    this.albums.map(album => album.selected = !album.selected);
+  selectAll($event: MatCheckboxChange) {
+    this.albums.map(album => album.selected = $event.checked);
   }
 }

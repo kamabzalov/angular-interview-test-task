@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AlbumsComponent } from './albums.component';
+import { AlbumsService } from '../services/albums/albums.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AlbumsComponent', () => {
   let component: AlbumsComponent;
@@ -8,9 +10,11 @@ describe('AlbumsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumsComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [AlbumsComponent],
+      providers: [AlbumsService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
