@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
 import { UsersService } from '../services/users/users.service';
@@ -6,6 +6,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { User } from '../services/users/user';
 import { of } from 'rxjs';
 import { Album } from '../services/albums/album';
+import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -44,6 +46,7 @@ describe('SidebarComponent', () => {
     getUsers() {
       return of(mockUsers);
     }
+
     getAlbumsByUserId() {
       return of(mockAlbums);
     }
@@ -51,7 +54,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, FormsModule],
       declarations: [SidebarComponent],
       providers: [{ provide: UsersService, useClass: UsersServiceStub }]
     })
@@ -90,6 +93,56 @@ describe('SidebarComponent', () => {
     const item = fixture.debugElement.nativeElement.querySelector('.hoverable');
     item.click();
     expect(component.getAlbums.emit).toHaveBeenCalledWith(mockAlbums);
+  });
+
+  it('should search field', () => {
+    const icon = fixture.debugElement.nativeElement.querySelector('.col-8 .clickable');
+    icon.click();
+    expect(component.showSearch).toBeTrue();
+  });
+
+  it('should hide search field', () => {
+    component.closeSearchField();
+    expect(component.showSearch).toBeFalse();
+  });
+
+  it('should hide search field', () => {
+    component.closeSearchField();
+    expect(component.showSearch).toBeFalse();
+  });
+
+  it('should return users list when hide search field', () => {
+    component.closeSearchField();
+    expect(component.users.length).toBeGreaterThan(0);
+  });
+
+  it('should return empty albums list when hide search field', () => {
+    spyOn(component.getAlbums, 'emit');
+    component.closeSearchField();
+    expect(component.getAlbums.emit).toHaveBeenCalledWith([]);
+  });
+
+  it('should search user by query', () => {
+    component.showSearchField();
+    fixture.detectChanges();
+    component.user = 'Leanne';
+    component.searchByQuery();
+    expect(component.users.length).toBeGreaterThan(0);
+  });
+
+  it('should search user by query and return empty result', () => {
+    component.showSearchField();
+    fixture.detectChanges();
+    component.user = 'not found user name';
+    component.searchByQuery();
+    expect(component.users.length).toEqual(0);
+  });
+
+  it('should return users list and empty albums list when reset search value', () => {
+    spyOn(component.getAlbums, 'emit');
+    component.clearSearch();
+    expect(component.users.length).toBeGreaterThan(0);
+    expect(component.getAlbums.emit).toHaveBeenCalledWith([]);
   });
 
 });

@@ -12,7 +12,7 @@
       <div class="col-12">
         <div class="searchWrapper d-flex align-items-center">
           <mat-icon class="clickable" (click)="closeSearchField()">arrow_back</mat-icon>
-          <input type="text" [(ngModel)]="user" (input)="searchByQuery()" placeholder="Search by name">
+          <input type="text" name="user" [(ngModel)]="user" (input)="searchByQuery()" placeholder="Search by name">
           <mat-icon class="clickable" *ngIf="user" (click)="clearSearch()">close</mat-icon>
         </div>
       </div>
