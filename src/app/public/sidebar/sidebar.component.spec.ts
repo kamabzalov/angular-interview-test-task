@@ -1,12 +1,10 @@
-import { ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
 import { UsersService } from '../services/users/users.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { User } from '../services/users/user';
 import { of } from 'rxjs';
 import { Album } from '../services/albums/album';
-import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 describe('SidebarComponent', () => {
@@ -54,7 +52,7 @@ describe('SidebarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, FormsModule],
+      imports: [FormsModule],
       declarations: [SidebarComponent],
       providers: [{ provide: UsersService, useClass: UsersServiceStub }]
     })
