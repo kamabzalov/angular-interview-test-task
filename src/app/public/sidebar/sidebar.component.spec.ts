@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { SidebarComponent } from './sidebar.component';
-import { UsersService } from '../services/users/users.service';
-import { User } from '../services/users/user';
-import { of } from 'rxjs';
-import { Album } from '../services/albums/album';
-import { FormsModule } from '@angular/forms';
+import {SidebarComponent} from './sidebar.component';
+import {UsersService} from '../services/users/users.service';
+import {User} from '../services/users/user';
+import {of} from 'rxjs';
+import {Album} from '../services/albums/album';
+import {FormsModule} from '@angular/forms';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -54,7 +54,7 @@ describe('SidebarComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
       declarations: [SidebarComponent],
-      providers: [{ provide: UsersService, useClass: UsersServiceStub }]
+      providers: [{provide: UsersService, useClass: UsersServiceStub}]
     })
       .compileComponents();
   }));
@@ -97,11 +97,6 @@ describe('SidebarComponent', () => {
     const icon = fixture.debugElement.nativeElement.querySelector('.col-8 .clickable');
     icon.click();
     expect(component.showSearch).toBeTrue();
-  });
-
-  it('should hide search field', () => {
-    component.closeSearchField();
-    expect(component.showSearch).toBeFalse();
   });
 
   it('should hide search field', () => {

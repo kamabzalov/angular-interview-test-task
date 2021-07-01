@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { AlbumsService } from '../services/albums/albums.service';
-import { Photo } from '../services/photos/photo';
-import { Album } from '../services/albums/album';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {AlbumsService} from '../services/albums/albums.service';
+import {Photo} from '../services/photos/photo';
+import {Album} from '../services/albums/album';
+import {MatCheckboxChange} from '@angular/material/checkbox';
 
 @Component({
   selector: 'albums',
@@ -13,7 +13,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 export class AlbumsComponent implements OnChanges {
 
   @Input()
-  albums = [];
+  albums: Album[] = [];
   @Output()
   getPhotos = new EventEmitter<Photo[]>();
 
