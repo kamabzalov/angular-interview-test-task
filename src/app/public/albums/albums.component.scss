@@ -1,21 +1,33 @@
 @import "src/assets/scss/vars";
 @import "src/assets/scss/mixins";
 
-#albums {
-  padding: $baseSize * 4 $baseSize * 6;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+:host {
+  background: $white;
 
-  .mat-checkbox {
-    font-size: 13px;
+  .albums {
+    padding: $baseSize * 4;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
-    .mat-checkbox-label {
-      text-overflow: ellipsis;
-      max-width: 130px;
-      overflow: hidden;
+    &__block-header {
+      font: {
+        size: 20px;
+        weight: 500;
+      }
+      color: $header-text-color;
     }
-  }
 
+    .mat-checkbox {
+      font-size: 13px;
+      width: 100%;
+      overflow: hidden;
+
+      .mat-checkbox-label {
+        text-overflow: ellipsis;
+      }
+    }
+
+  }
 }
 

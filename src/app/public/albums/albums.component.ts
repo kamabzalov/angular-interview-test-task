@@ -8,7 +8,6 @@ import {MatCheckboxChange} from '@angular/material/checkbox';
   selector: 'albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class AlbumsComponent implements OnChanges {
 

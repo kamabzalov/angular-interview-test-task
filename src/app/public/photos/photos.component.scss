@@ -2,11 +2,20 @@
 @import "src/assets/scss/mixins";
 
 :host {
+  background: $white;
 
-  #photos {
-    padding: $baseSize * 4 $baseSize * 6;
+  .photos {
+    padding: $baseSize * 4;
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    &__block-header {
+      font: {
+        size: 20px;
+        weight: 500;
+      }
+      color: $header-text-color;
+    }
   }
 }

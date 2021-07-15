@@ -7,13 +7,19 @@
     height: 95vh;
     overflow-y: scroll;
 
-    header {
+    .header {
       padding: $baseSize * 4 $baseSize * 6;
       background: #f9f9f9;
       position: sticky;
       top: 0;
       left: 0;
       z-index: 2;
+
+      &__block-header {
+        font-size: 20px;
+        font-weight: 500;
+        color: #333;
+      }
     }
 
     .mat-icon {
