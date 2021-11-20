@@ -3,6 +3,8 @@
 
 :host {
   background: $white;
+  max-height: 100vh;
+  overflow-y: scroll;
 
   .photos {
     padding: $baseSize * 4;
